@@ -1,0 +1,38 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: Zuul-Proxy-Server
+
+  profiles:
+    active: dev
+
+zuul:
+  prefix: /api
+  routes:
+    movie-catalog-service:
+       path: /**
+       serviceId: movie-catalog-service
+       
+# now it works on http://localhost:8080/api/catalog/U1
+# to get all route points 
+# http://localhost:8080/actuator/routes       
+       
+       
+eureka:
+  instance: 
+   hostname: localhost
+   preferIpAddress: true
+   
+  client:
+   registerWithEureka: true
+   fetchRegistry: true
+   serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+      
+management:
+    endpoints:
+       web:
+         exposure:
+             include: '*'
