@@ -1,0 +1,51 @@
+version: "3.9"
+services:
+
+  eurekaServer:
+    image: eurekaserver:1.0
+    ports: 
+      - 8761:8761
+    #networks: spring-network
+
+  zuulServer:
+   image: zuulserver:1.0
+   ports: 
+     - 8080:8080
+   environment: 
+     # Important for clients to register with eureka
+     - eureka.client.serviceUrl.defaultZone=http://eurekaServer:8761/eureka/
+   depends_on:
+     - eurekaServer
+   
+  movie-catalog-service:
+   image: movie-catalog-service:1.0
+   ports: 
+     - 8081:8081
+   environment: 
+     - eureka.client.serviceUrl.defaultZone=http://eurekaServer:8761/eureka/
+
+   depends_on:
+     - eurekaServer
+     - zuulServer
+
+  movie-info-service:
+   image: movie-info-service:1.0
+   ports: 
+     - 8082:8082
+   environment: 
+     - eureka.client.serviceUrl.defaultZone=http://eurekaServer:8761/eureka/
+
+   depends_on:
+     - eurekaServer
+     - zuulServer
+
+  rating-data-service:
+   image: rating-data-service:1.0
+   ports: 
+     - 8083:8083
+   environment: 
+     - eureka.client.serviceUrl.defaultZone=http://eurekaServer:8761/eureka/
+
+   depends_on:
+     - eurekaServer
+     - zuulServer
