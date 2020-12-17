@@ -1,6 +1,6 @@
 # Spring-boot-microservices-demo
 
-Eureka + Hystrix + circuit breaker+ Zuul
+Eureka + Hystrix + circuit breaker+ Zuul + docker
 
 To connect all microservices with common bridge network
 >docker network create spring-network
