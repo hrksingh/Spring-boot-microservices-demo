@@ -1,4 +1,6 @@
 HELP.md
+api_key.yml
+.gitignore
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
