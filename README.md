@@ -22,11 +22,11 @@ To stop all Services
 
 
 -----
-❗ 🔴IMPORTANT🔴 🔥
+ 🔴IMPORTANT🔴 🔥
   - Remember if your service cannot connect to internet or not avaiable to make api call it might be due SSL and TLS certificate issue. You can install this on via DockerFile to see example visit this [dockerfile](https://github.com/hrksingh/Spring-boot-microservices-demo/blob/main/Zuul/Dockerfile)
 
 
->🟡 But If you are using own network it still may not connect, to solve this. See this [topic ⬇](#enable-forwarding-from-docker-containers-to-the-outside-world)
+>❗ But If you are using own network it still may not connect, to solve this. See this [topic ⬇](#enable-forwarding-from-docker-containers-to-the-outside-world)
 
 
 
@@ -52,3 +52,5 @@ By default, traffic from containers connected to the default bridge network is n
 <span style="color:Yellow "> <font size="4"> ⚠ </font></span>&nbsp; These settings do not persist across a reboot, so you may need to add them to a start-up script.
 
 -----
+
+To test project -> http://localhost:8080/api/catalog/U1 
