@@ -2,6 +2,7 @@ version: "3.9"
 services:
 
   eurekaServer:
+    build: ..\spring-boot-Microservices-Demo\Eureka-Discovery-Server\ .
     image: eurekaserver:1.0
     ports: 
       - 8761:8761
@@ -9,6 +10,7 @@ services:
      - spring-network
 
   zuulServer:
+   build: ..\spring-boot-Microservices-Demo\Zuul\ .
    image: zuulserver:1.0
    ports: 
      - 8080:8080
@@ -21,6 +23,7 @@ services:
      - spring-network
    
   movie-catalog-service:
+   build: ..\spring-boot-Microservices-Demo\Movie-catalog-Service\ .
    image: movie-catalog-service:1.0
    ports: 
      - 8081:8081
@@ -33,6 +36,7 @@ services:
      - spring-network
 
   movie-info-service:
+   build: ..\spring-boot-Microservices-Demo\Movie-Info-Service\ .
    image: movie-info-service:1.0
    ports: 
      - 8082:8082
@@ -45,6 +49,7 @@ services:
      - spring-network
 
   rating-data-service:
+   build: ..\spring-boot-Microservices-Demo\Ratings-Data-Service\ .
    image: rating-data-service:1.0
    ports: 
      - 8083:8083
