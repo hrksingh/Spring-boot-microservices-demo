@@ -11,7 +11,7 @@ To build Docker Image from file:
 >docker build -t zuulserver:1.0 . <span style="color:Grey ">              # dot here refer to dockerfile in current directory
 
 
-To start Conatiner:
+To start Container:
 >docker container run --network spring-network --name eurekaServer -p 8761:8761 -d eurekaserver:1.0
 
 To start all Services
@@ -23,7 +23,7 @@ To stop all Services
 
 -----
  🔴IMPORTANT🔴 🔥
-  - Remember if your service cannot connect to internet or not avaiable to make api call it might be due SSL and TLS certificate issue. You can install this via DockerFile to see example visit this [dockerfile](https://github.com/hrksingh/Spring-boot-microservices-demo/blob/main/Zuul/Dockerfile)
+  - Remember if your service cannot connect to the internet or not available to make api call it might be due to SSL and TLS certificate issue. You can install this via DockerFile to see example visit this [dockerfile](https://github.com/hrksingh/Spring-boot-microservices-demo/blob/main/Zuul/Dockerfile)
 
 
 ❗ But If you are using your own network it still may not connect, to solve this. See this [topic ⬇](#enable-forwarding-from-docker-containers-to-the-outside-world)
