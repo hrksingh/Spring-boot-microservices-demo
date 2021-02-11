@@ -1,0 +1,97 @@
+version: "3.9"
+services:
+   maven_eureka:
+     image: maven:3.6.3-adoptopenjdk-14
+     volumes:
+       - type: bind
+         source: E:\My Projects\Spring Boot Projects\spring-boot-Microservices-Demo\Eureka-Discovery-Server
+         target: /usr/src/eureka
+
+       - type: bind
+         source: $HOME\.m2
+         target: /root/.m2
+
+       - type: bind
+         source: E:\My Projects\Spring Boot Projects\spring-boot-Microservices-Demo\Eureka-Discovery-Server\target
+         target: /usr/src/eureka/target
+     
+     working_dir: /usr/src/eureka
+     command: >
+        bash -c " mvn package"
+  
+
+   maven_zuul:
+     image: maven:3.6.3-adoptopenjdk-14
+     volumes:
+       - type: bind
+         source: E:\My Projects\Spring Boot Projects\spring-boot-Microservices-Demo\Zuul
+         target: /usr/src/zuul
+
+       - type: bind
+         source: $HOME\.m2
+         target: /root/.m2
+
+       - type: bind
+         source: E:\My Projects\Spring Boot Projects\spring-boot-Microservices-Demo\Zuul\target
+         target: /usr/src/zuul/target
+     
+     working_dir: /usr/src/zuul
+     command: >
+        bash -c " mvn package"
+
+   maven_catalog:
+     image: maven:3.6.3-adoptopenjdk-14
+     volumes:
+       - type: bind
+         source: E:\My Projects\Spring Boot Projects\spring-boot-Microservices-Demo\Movie-catalog-Service
+         target: /usr/src/catalog
+
+       - type: bind
+         source: $HOME\.m2
+         target: /root/.m2
+
+       - type: bind
+         source: E:\My Projects\Spring Boot Projects\spring-boot-Microservices-Demo\Movie-catalog-Service\target
+         target: /usr/src/catalog/target
+     
+     working_dir: /usr/src/catalog
+     command: >
+        bash -c " mvn package"
+
+   maven_info:
+     image: maven:3.6.3-adoptopenjdk-14
+     volumes:
+       - type: bind
+         source: E:\My Projects\Spring Boot Projects\spring-boot-Microservices-Demo\Movie-Info-Service
+         target: /usr/src/info
+
+       - type: bind
+         source: $HOME\.m2
+         target: /root/.m2
+
+       - type: bind
+         source: E:\My Projects\Spring Boot Projects\spring-boot-Microservices-Demo\Movie-Info-Service\target
+         target: /usr/src/info/target
+     
+     working_dir: /usr/src/info
+     command: >
+        bash -c " mvn package"
+
+   maven_rating:
+     image: maven:3.6.3-adoptopenjdk-14
+     volumes:
+       - type: bind
+         source: E:\My Projects\Spring Boot Projects\spring-boot-Microservices-Demo\Ratings-Data-Service
+         target: /usr/src/rating
+
+       - type: bind
+         source: $HOME\.m2
+         target: /root/.m2
+
+       - type: bind
+         source: E:\My Projects\Spring Boot Projects\spring-boot-Microservices-Demo\Ratings-Data-Service\target
+         target: /usr/src/rating/target
+     
+     working_dir: /usr/src/rating
+     command: >
+        bash -c " mvn package"
